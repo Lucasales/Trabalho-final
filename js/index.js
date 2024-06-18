@@ -153,7 +153,7 @@ function resetPlanos() {
 /* Funções auxiliares */
 
 function calculaIMC(peso, altura) {
-    return Math.floor(peso / altura**2)
+    return (peso / (altura**2)).toFixed(2)
 }
 
 function calculaComorbidade(imc) {
@@ -163,19 +163,19 @@ function calculaComorbidade(imc) {
         case (imc < 18.5):
             comorbidade = 10;
             break;
-        case (imc >= 18.5 && imc <= 24.9):
+        case (imc >= 18.5 && imc <= 24.99):
             comorbidade = 1;
             break;
-        case (imc >= 25 && imc <= 29.9):
+        case (imc >= 25 && imc <= 29.99):
             comorbidade = 6;
             break;
-        case (imc >= 30 && imc <= 34.9):
+        case (imc >= 30 && imc <= 34.99):
             comorbidade = 10;
             break;
-        case (imc >= 35 && imc <= 39.9):
+        case (imc >= 35 && imc <= 39.99):
             comorbidade = 20;
             break;
-        case (imc > 40):
+        case (imc >= 40):
             comorbidade = 30;
             break;
         default:
@@ -214,7 +214,7 @@ function operadoraA(cliente) {
         },
         planoPremium: {
             nome: "Plano Premium",
-            valor: (200 - (cliente.imc * 10) + (cliente.idade * 20)) * (cliente.imc /10)
+            valor: (200 - (cliente.imc * 10) + (cliente.idade * 20)) * (cliente.imc / 10)
         }
     }
 
